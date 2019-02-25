@@ -142,6 +142,7 @@ figure figcaption{
 }
 
 nav li{
+	list-style-type: none;
 	display: flex;
 	border: solid;
 	padding: 10px 20px;
