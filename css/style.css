@@ -135,6 +135,8 @@ figure figcaption{
 
 .personalsection figure {
 	border:none;
+	max-height: 40%;
+	width:auto;
 }
 
 /* order and unordered list CSS formatting taken from https://www.w3schools.com/css/css_list.asp */ 
