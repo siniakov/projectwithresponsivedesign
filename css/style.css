@@ -133,6 +133,10 @@ figure figcaption{
 	width:3em;
 }
 
+.personalsection figure {
+	border:none;
+}
+
 /* order and unordered list CSS formatting taken from https://www.w3schools.com/css/css_list.asp */ 
 
 @media screen and (max-width: 600px){
@@ -370,10 +374,6 @@ ol li:after{
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr auto;
 	padding:25px;
-}
-
-.personalsection figure {
-	border:none;
 }
 
 #intro{
