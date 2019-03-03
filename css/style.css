@@ -1,3 +1,9 @@
+/* NOTE TO GRADERS: For responsive design - layout changes as follows: 
+(1) navigation stacks on smaller screens, buttons are 'next to each other' on larger views, 
+(2) home page/index page --> text in regular block layout on smaller screen, uses grid on larger screens to take up full view. 
+(3) About us page: on large screens, "polaroid photos" sit next to each other using grid, on smaller screens they're one under the other using flex
+(4) For third layout, used media query to make *gallery* images grayscale and smaller(saves ink!), and removed footer (info (links) not actionable)*/ 
+
 input{
 	display: block;
 	}
@@ -130,6 +136,8 @@ figure figcaption{
 /* order and unordered list CSS formatting taken from https://www.w3schools.com/css/css_list.asp */ 
 
 @media screen and (max-width: 600px){
+
+
 .gallery{
 	flex-direction: column;
 	flex-wrap:wrap;
@@ -179,6 +187,7 @@ p{
     display: inline-block;
     max-width: 90%;
     padding: 1em;
+    line-height: 2em;
 }
 
 
@@ -191,6 +200,7 @@ ul {
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:80%;
+    padding-bottom: 1.5em;
 }
 
 ol{
@@ -202,6 +212,8 @@ ol{
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:80%;
+    padding-bottom: 1.5em;
+
 }
 
 ul li:before {
@@ -227,6 +239,13 @@ ol li:before {
 
 }
 
+ul li:after{
+	padding-bottom: 2em;
+}
+
+ol li:after{
+	padding-bottom: 2em;
+}
 
 
 }
@@ -281,6 +300,7 @@ p{
     display: inline-block;
     max-width: 80%;
     padding: 0.5em;
+    line-height: 1.5em;
 }
 
 
@@ -293,6 +313,8 @@ ul {
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:90%;
+    padding-bottom: 2em;
+
 }
 
 ol{
@@ -304,6 +326,7 @@ ol{
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:90%;
+    padding-bottom: 2em;
 }
 
 ul li:before {
@@ -331,9 +354,69 @@ ol li:before {
 
 }
 
+ul li:after{
+	padding-bottom: 1.5em;
+}
+
+ol li:after{
+	padding-bottom: 1.5em;
+}
+
 }
 
 @media screen and (min-width: 900px){
+.personalsection{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr auto;
+}
+
+#intro{
+	grid-column-start: 1;
+	grid-column-end: 3;
+}
+
+#den{
+	width:100%;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+
+#burr{
+	width:100%;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
+.qanda{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+}
+
+
+#christening{
+	width:100%;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+#whyrenovate{
+	width:100%;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+#cost{
+	width:100%;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+#lengthlived{
+	width:100%;
+	grid-column-start: 2;
+	grid-column-end: 3;
+}
+
+
 .gallery{
 	flex-direction: row;
 	flex-wrap:wrap;
@@ -383,6 +466,7 @@ p{
     display: inline-block;
     max-width: 80%;
     padding: 0.5em;
+    line-height: 1.5em;
 }
 
 ul {
@@ -394,6 +478,7 @@ ul {
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:60%;
+    padding-bottom: 1em;
 }
 
 ol{
@@ -405,6 +490,7 @@ ol{
     font-size: 0.8em;
     margin-bottom: 0.5em;
     max-width:60%;
+    padding-bottom: 1em;
 }
 
 ul li:before {
@@ -431,6 +517,55 @@ ol li:before {
 }
 
 
+ul li:after{
+	padding-bottom: 1em;
+}
 
+ol li:after{
+	padding-bottom: 1em;
+}
+
+}
+
+@media print {
+  body {
+    /* IE4-8 and 9 */
+    filter: Gray();
+    /* SVG version for IE10, Chrome 17, FF3.5, Safari 5.2 and Opera 11.6 */
+    filter: url('#grayscale'); 
+    /* CSS3 filter, at the moment Webkit only. Prefix it for future implementations */
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); /* future-proof */
+    /* code for print grayscale taken from https://stackoverflow.com/questions/17294817/media-queries-color-monochrome-and-printing*/
+  }
+
+.gallery{
+	display:flex;
+	flex-direction: row;
+	flex-wrap:wrap;
+	margin: auto;
+	justify-content: space-around;
+}
+
+.galleryitem{
+	display:flex;
+	max-width:25%;
+	height:auto;
+}
+
+img{
+	/* IE4-8 and 9 */
+    filter: Gray();
+    /* SVG version for IE10, Chrome 17, FF3.5, Safari 5.2 and Opera 11.6 */
+    filter: url('#grayscale'); 
+    /* CSS3 filter, at the moment Webkit only. Prefix it for future implementations */
+    -webkit-filter: grayscale(100%); 
+    filter: grayscale(100%); /* future-proof */
+    /* code for print grayscale taken from https://stackoverflow.com/questions/17294817/media-queries-color-monochrome-and-printing*/
+}
+
+footer li{
+	display:none;
+}
 
 }
